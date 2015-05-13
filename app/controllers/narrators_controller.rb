@@ -9,12 +9,22 @@ class NarratorsController < ApplicationController
 	end
 
 	def create
-		@audiobook = Narrator.find(params[:id])
+		# make a new narrator using the information provided by the user
+		@narrator = Narrator.new(name: params[:name], gender: params[:gender], accent: params[:accent], voices: params[:voices])
+		@narrator.save
+		@narrators = Narrator.all
+		render :index
+		# if @narrator.save
+		# 	render :show
+		# else
+		# 	render :new
+		# end
 			# if admin, save
 			# else, create, but do not save and wait for admin to approve
 	end
 
 	def show
+		# show all the audiobooks associated with the narrator returned by the search
 		@audiobook = Narrator.find(params[:id])
 	end
 

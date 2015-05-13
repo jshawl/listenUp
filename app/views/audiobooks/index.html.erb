@@ -1,0 +1,7 @@
+<h1>Browse All Audiobooks</h1>
+
+<% @audiobooks.each do |audiobook| %>
+
+	<li><%= link_to audiobook.title, audiobook_path(audiobook) %></li>
+
+<% end %>
