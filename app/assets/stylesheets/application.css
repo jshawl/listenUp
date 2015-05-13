@@ -31,11 +31,11 @@ h3 {
 	text-align: center;
 }
 
-.formBox {
+.searchFormBox {
 	padding: 20px;
 	border-style: dashed;
 	border-width: 2px;
-	width: 40%;
+	width: 400px;
 	margin-right: auto;
 	margin-left: auto;
 }

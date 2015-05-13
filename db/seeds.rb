@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Narrator.create!({name: "Stephen Frye", accent: "British", gender: "male", voices: "yes"})
+Narrator.create!({name: "Laura Ingalls Wilder", accent: "American", gender: "female", voices: "no"})

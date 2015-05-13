@@ -3,6 +3,22 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="demographics">
+    Gender: 
+    <%= radio_button_tag(:gender, "user") %>
+    <%= label_tag(:male, "Male") %>
+    <%= radio_button_tag(:gender, "user") %>
+    <%= label_tag(:female, "Female") %>
+    <br>
+    Age range:
+    <%= radio_button_tag(:age, "user") %>
+    <%= label_tag(:child, "< 10 ") %>
+    <%= radio_button_tag(:age, "user") %>
+    <%= label_tag(:teenager, "11 - 19 ") %>
+    <%= radio_button_tag(:age, "user") %>
+    <%= label_tag(:adult, "20+ ") %>   
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>

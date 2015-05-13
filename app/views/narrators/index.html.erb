@@ -1,0 +1,68 @@
+<%= debug params %>
+
+<h2> What does your ideal storyteller sound like? </h2>
+<h3> Search for audiobooks based on narrator characteristcs </h3>
+
+<div class="searchFormBox">
+	<%= form_tag narrators_path, method: "get" do %>
+	Choose narrator preferences:
+	<br>
+	Gender:
+	<%= radio_button_tag("narrator[gender]", "male") %>
+	<%= label_tag(:male, "Male") %>
+	<%= radio_button_tag("narrator[gender]", "female") %>
+	<%= label_tag(:female, "Female") %>
+	<br>
+
+	Accent:
+	<%= radio_button_tag("narrator[accent]", "American") %>
+	<%= label_tag(:American, "American") %>
+	<%= radio_button_tag("narrator[accent]", "British") %>
+	<%= label_tag(:British, "British") %>
+	<%= radio_button_tag("narrator[accent]", "Australian") %>
+	<%= label_tag(:Australian, "Australian") %>
+	<br>
+
+	Performs different voices:
+	<%= radio_button_tag("narrator[voices]", "yes") %>
+	<%= label_tag(:yes, "Yes") %>
+	<%= radio_button_tag("narrator[voices]", "no") %>
+	<%= label_tag(:no, "No") %>
+	<br>
+	
+	<%= submit_tag "Search" %>
+	<% end %>
+
+	<!-- Desired HTML from helper above
+	<form>
+	  Pick your narrator preferences:<br>
+	  Gender:
+	  <input type="radio" name="gender" id="male">Male
+	  <input type="radio" name="gender" id="female">Female<br>
+	  Accent:
+	  <input type="radio" name="Accent" id="American">American
+	  <input type="radio" name="Accent" id="British">British
+	  <input type="radio" name="Accent" id="Australian">Australian<br>
+	  Performs different voices:
+	  <input type="radio" name="Voices" id="Yes">Yes
+	  <input type="radio" name="Voices" id="No">No<br>
+	  <input type="submit" value="Search">
+	</form> -->
+</div>
+
+<script>
+function check() {
+    document.getElementById("gender").checked = true;
+}
+function uncheck() {
+    document.getElementById("gender").checked = false;
+}
+</script>
+
+
+<h1>Browse All Narrators</h1>
+
+<% @narrators.each do |narrator| %>
+	<%= link_to narrator.name, narrator_path(narrator) %>
+<% end %>
+
