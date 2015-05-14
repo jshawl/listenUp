@@ -1,18 +1,19 @@
 <div class="newNarratorFormBox">
 	<%= form_tag "/narrators", method: :post do %>
-	Add narrator preferences:
+	<h2>Add a Narrator to listenUP</h2>
+	Please enter a value for each characteristic
 	<br>
-	Name:
-	<%= text_field_tag :name, placeholder: "Narrator's full name" %>
+	<p class=formField>Name:</p>
+	<%= text_field_tag :name, "Narrator's full name" %>
 	<br>
-	Gender:
+	<p class=formField>Gender:</p>
 	<%= radio_button_tag :gender , "male" %>
 	<%= label_tag :gender, "Male" %>
 	<%= radio_button_tag :gender, "Female" %>
 	<%= label_tag :female, "Female" %>
 	<br>
 
-	Accent:
+	<p class=formField>Accent:</p>
 	<%= radio_button_tag :accent, "American" %>
 	<%= label_tag :accent, "American" %>
 	<%= radio_button_tag :accent, "British" %>
@@ -21,7 +22,7 @@
 	<%= label_tag :accent, "Australian" %>
 	<br>
 
-	Performs different voices:
+	<p class=formField>Performs different voices:</p>
 	<%= radio_button_tag :voices, "yes" %>
 	<%= label_tag :voices, "Yes" %>
 	<%= radio_button_tag :voices, "no" %>

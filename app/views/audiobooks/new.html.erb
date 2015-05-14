@@ -1,0 +1,24 @@
+<div class="newAudiobookFormBox">
+	<%= form_tag "/audiobooks", method: :post do %>
+	<h2>Add an Audiobook to listenUP</h2>
+
+	<p class="formField">Title:</p>
+	<%= text_field_tag :title, "Book title" %>
+	<br>
+	<p class="formField">Author:</p>
+	<%= text_field_tag :author, "Author's full name" %>
+	<br>
+	<p class="formField">Category:</p>
+	<%= select_tag :category, options_for_select(["Fantasy", "Classics", "Memoir", "Mystery", "History", "Business", "Self-Development", "Fiction", "Teens", "Kids", "Nonfiction"]) %>
+	<br>
+
+	<p class="formField">Narrator:</p>
+	<%= select_tag :narrator_id, options_from_collection_for_select(@narrators, "id", "name") %>
+	<br>
+	
+	<%= submit_tag "Submit" %>
+	<% end %>
+
+</div>
+
+<!-- <%= select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option ) -->

@@ -6,6 +6,10 @@ class NarratorsController < ApplicationController
 		else
 			@narrators = Narrator.all
 		end
+		respond_to do |format|
+			format.html { render :index }
+			format.json { render json: @narrators}
+		end
 	end
 
 	def create
@@ -25,7 +29,8 @@ class NarratorsController < ApplicationController
 
 	def show
 		# show all the audiobooks associated with the narrator returned by the search
-		@audiobook = Narrator.find(params[:id])
+		@narrator = Narrator.find(params[:id])
+		@audioboooks = @narrator.audiobooks
 	end
 
 private

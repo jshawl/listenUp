@@ -29,8 +29,21 @@
 <footer>
 	<div class="nav_bar">
     <ul class="menu">
-<!--       <li><%= link_to "Browse Narrators", narrators_path, :class => "list" %></li> -->
-      <li><%= link_to "Add a Narrator", new_narrator_path %></li>
+
+    	<%= link_to "Add a Narrator", new_narrator_path %>
+    	<br>
+
+    	<% if user_signed_in? %>
+          You are signed in as
+      		<%= current_user.email %><br>
+      		<%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "list" %>
+    	<% else %>
+      Know a narrator or audiobook that is not in our database?  <br>
+      Sign up to become a contributor!
+      <br>
+      		<%= link_to 'Login', new_user_session_path, :class => "list" %>
+    	<% end %>
+
     </ul>
 </div>
 </footer>

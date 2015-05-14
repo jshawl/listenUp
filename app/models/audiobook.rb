@@ -1,6 +1,5 @@
 class Audiobook < ActiveRecord::Base
-	belongs_to :narrators
-
-	validates :title, {presence: true}
+	belongs_to :narrator, dependent: :destroy
+	validates :title, :author, :category, :narrator_id,  :presence => true
 
 end

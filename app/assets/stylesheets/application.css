@@ -33,6 +33,13 @@ h3 {
 	text-align: center;
 }
 
+.formField {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 14px;
+	display: inline;
+}
+
 .searchFormBox {
 	padding: 20px;
 	border-style: dashed;

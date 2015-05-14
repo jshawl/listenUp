@@ -1,5 +1,5 @@
 class Narrator < ActiveRecord::Base
 	has_many :audiobooks
-
-	validates :name, {presence: true}
+	validates :name, :accent, :gender,:presence => true
+	
 end

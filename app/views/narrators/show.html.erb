@@ -1,8 +1,13 @@
 <div class=narrator>
 	<ul>
-		<li>Name: <%=  %></li>
-		<li>Gender: </li>
-		<li>Accent: </li>
-		<li>Voices: </li>
+		<li><h3>Name: </h3> <%= @narrator.name %></li>
+		<li><h3>Gender: </h3><%= @narrator.gender %></li>
+		<li><h3>Accent: </h3><%= @narrator.accent %></li>
+		<li><h3>Voices: </h3><%= @narrator.voices %></li>
+		<li><h3>Audiobooks: </h3> 
+			<% @narrator.audiobooks.each do |audiobook| %>
+				<p class="audiobookList"><%= link_to audiobook.title, audiobook_path(audiobook) %><p>
+			<% end %> 
+		</li>
 	</ul>
 </div>

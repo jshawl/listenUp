@@ -28,17 +28,56 @@
 	<%= label_tag(:no, "No") %>
 	<br>
 	
+	<div class="searchButton">
 	<%= submit_tag "Search" %>
 	<% end %>
+	</div>
 
 </div>
 
 <script>
+// radio buttons
 function check() {
     document.getElementById("gender").checked = true;
 }
 function uncheck() {
     document.getElementById("gender").checked = false;
+}
+
+var searchNarrators = document.querySelector(".searchFormBox")
+searchNarrators.addEventListener("click", Narrator)
+
+// search
+var Narrator = function(gender, accent, voices){
+	this.gender = gender;
+	this.accent = accent;
+	this.voices = voices
+}
+
+Narrator.prototype = {
+	search: function(){
+		$.ajax({
+			url: "http://localhost:3000/narrators",
+			data: { narrator: {gender: this.gender, accent: this. accent, voices: this.voices}},
+			type: 'GET',
+			dataType: 'json',
+			success: function(json){
+				console.log("it worked!")
+			},
+			error: function(){
+				alert("Sorry, this didn't work!")
+			},
+			complete: function(){
+				alert("The thing has been done!")
+			}	
+		// }).done(function(){
+		// 	console.log("it worked!")
+		// }).fail(function(){
+		// 	console.log("failure")
+		// }).always(function(){
+		// 	console.log("you managed to do something right")
+		})
+	}
 }
 </script>
 

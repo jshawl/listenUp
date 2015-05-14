@@ -1,9 +1,16 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Narrator.create!({name: "Stephen Frye", accent: "British", gender: "male", voices: "yes"})
-Narrator.create!({name: "Laura Ingalls Wilder", accent: "American", gender: "female", voices: "no"})
+
+# Narrators
+Narrator.create!({name: "Stephen Fry", accent: "British", gender: "male", voices: "yes"})
+Narrator.create!({name: "Tim Robbins", accent: "American", gender: "male", voices: "no"})
+Narrator.create!({name: "Jake Gyllenhaal", accent: "American", gender: "male", voices: "no"})
+Narrator.create!({name: "Davina Porter", accent: "British", gender: "female", voices: "yes"})
+
+# Audiobooks
+Audiobook.create!({title: "Outlander", author: "Diana Gabaldon", category: "fantasy", narrator_id: "4"})
+Audiobook.create!({title: "Fahrenheit 451", author: "Ray Bradbury", category: "classics", narrator_id: "2"})
+Audiobook.create!({title: "The Great Gatsby", author: "F. Scott Fitzgerald", category: "classics", narrator_id: "3"})
+Audiobook.create!({title: "The Mists of Avalon", author: "Marion Zimmer Bradley", category: "fantasy", narrator_id: "4"})
+Audiobook.create!({title: "More Fool Me", author: "Stephen Fry", category: "memoir", narrator_id: "1"})
+Audiobook.create!({title: "Harry Potter", author: "J.K. Rowling", category: "fantasy", narrator_id: "1"})
