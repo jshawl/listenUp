@@ -79,7 +79,7 @@ Narrator.prototype = {
 			success: function(json){
 				console.log(json)
 				$.each(json, function(){
-					$("#searchResults").append("<li>" + "<a href='/narrators/" + this.id + "'>" + this.name + "</a></li>")
+					$("#searchResults").append("<li class='narratorsResults'>" + "<a href='/narrators/" + this.id + "'>" + this.name + "</a></li>")
 				})
 
 			},
@@ -87,7 +87,7 @@ Narrator.prototype = {
 				alert("Sorry, this didn't work!")
 			},
 			complete: function(){
-				alert("The thing has been done!")
+				// alert("The thing has been done!")
 			}	 
 		})
 	}

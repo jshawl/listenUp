@@ -15,7 +15,8 @@
 
 <div class="container">
     <nav>
-      <ul class="nav nav-pills pull-right">
+
+      <ul class="nav-pills">
 
         <% if user_signed_in? %>
           You are signed in as
@@ -36,10 +37,13 @@
           <%= link_to "Add an Audiobook", new_audiobook_path %>
         </li>
       </ul>
+
+      <div class="logo">
+        <%= link_to image_tag("logo_v2.jpg"), root_path %>
+      </div>
+      
     </nav>
-  <div class="logo">
-    <%= link_to image_tag("logo_v2.jpg"), root_path %>
-  </div>
+  
 </div>
 
 
