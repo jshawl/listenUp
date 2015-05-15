@@ -1,0 +1,146 @@
+Skip to content
+This repository  
+Explore
+Gist
+Blog
+Help
+@Tuzibun Tuzibun
+ 
+ Unwatch 1
+  Star 0
+ Fork 0Tuzibun/listenUp
+ tree: b33999cd50  listenUp/app/assets/stylesheets/application.css
+@TuzibunTuzibun 26 minutes ago center h2
+1 contributor
+RawBlameHistory    131 lines (111 sloc)  1.79 kb
+/*
+ *= require_tree .
+ *= require_self
+ */
+.logo {
+/*	text-align: center;*/
+/*	margin: 20px;*/
+}
+
+li .active {
+	background-color: #f7941e;
+}
+
+nav {
+	margin: 20px;
+	display: block;
+}
+
+.nav-pills {
+  list-style-type: none;
+  float: right;
+}
+
+.nav-pills > li {
+  float: left;
+ }
+
+.nav-pills > li.active > a {
+  color: black;
+  background-color: #f7941e;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.nav-pills > li.active > a:hover {
+  background: #f1592a;
+  text-decoration: none;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 22px;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: 18px;
+	text-align: center;
+	text-decoration: none;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: center;
+	padding: 5px;
+}
+
+h4 {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 18px;
+	text-align: left;
+	list-style-type: none;
+	display: inline;
+}
+
+/*@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}*/
+
+.formField {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 14px;
+	display: inline;
+}
+
+.searchFormBox {
+	padding: 20px;
+	border-style: dashed;
+	border-width: 2px;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+form {
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
+}
+
+form input[type=submit] {
+	background-color: #f7941e;
+  	-webkit-border-radius: 15;
+  	-moz-border-radius: 15;
+  	border-radius: 15px;
+  	color: black;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+  	text-decoration: none;
+  	margin-right: auto;
+  	margin-left: auto;
+}
+
+form input[type=submit]:hover {
+  background: #f1592a;
+  text-decoration: none;
+}
+
+.narratorsResults {
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.nav_bar {
+
+}
