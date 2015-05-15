@@ -13,7 +13,7 @@
 	<br>
 
 	<p class="formField">Narrator:</p>
-	<%= select_tag :narrator_id, options_from_collection_for_select(@narrators, "id", "name") %>
+	<%= select_tag :narrator_id, options_for_select(["Davina Porter", "Tim Robbins", "Jake Gyllenhaal", "Stephen Fry"]) %>
 	<br>
 	
 	<%= submit_tag "Submit" %>
@@ -21,4 +21,3 @@
 
 </div>
 
-<!-- <%= select_tag(:option, options_for_select([['All', 1], ['Co', 2], ['Bought', 3], ['View', 4], ['Top API', 5]], selected: :option ) -->

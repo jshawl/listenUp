@@ -1,7 +1,44 @@
-<h1>Browse All Audiobooks</h1>
+<script>
 
-<% @audiobooks.each do |audiobook| %>
+var searchAudiobooks = document.querySelector(".searchFormBox")
+searchNarrators.addEventListener("click", Narrator)
 
-	<li><%= link_to audiobook.title, audiobook_path(audiobook) %></li>
+// search
+var Audiobook = function(title, author, category, narrator_id){
+	this.title = title;
+	this.author = author;
+	this.category= category;
+	this.narrator_id = narrator_id
+}
 
-<% end %>
+Audiobook.prototype = {
+	search: function(){
+		$.ajax({
+			url: "http://localhost:3000/audiobook",
+			data: { audiobook: {title: this.title, author: this.author, category: this.category, narrator_id: this.narrator_id}},
+			type: 'GET',
+			dataType: 'json',
+			success: function(json){
+				console.log("it worked!")
+			},
+			error: function(){
+				alert("Sorry, this didn't work!")
+			},
+			complete: function(){
+				alert("The thing has been done!")
+			}	
+		})
+	}
+}
+</script>
+<h2 style="text-decoration:none">
+	<%= link_to "Audiobooks", "#", id: "audiobooks_link" %>
+</h2>
+
+<section id="list-audiobooks">
+	<ol id="audiobooks">
+		<li style="text-decoration:none">
+<%= link_to @audiobook.title, audiobook_path(audiobook) %>
+</li>
+	</ol>
+</section>
