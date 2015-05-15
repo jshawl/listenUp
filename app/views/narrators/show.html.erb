@@ -1,10 +1,10 @@
 <div class=narrator>
 	<ul>
-		<li><h3>Name: </h3> <%= @narrator.name %></li>
-		<li><h3>Gender: </h3><%= @narrator.gender %></li>
-		<li><h3>Accent: </h3><%= @narrator.accent %></li>
-		<li><h3>Voices: </h3><%= @narrator.voices %></li>
-		<li><h3>Audiobooks: </h3> 
+		<li><h4>Name: </h4> <%= @narrator.name %></li>
+		<li><h4>Gender: </h4><%= @narrator.gender %></li>
+		<li><h4>Accent: </h4><%= @narrator.accent %></li>
+		<li><h4>Voices: </h4><%= @narrator.voices %></li>
+		<li><h4>Audiobooks: </h4> 
 			<% @narrator.audiobooks.each do |audiobook| %>
 				<p class="audiobookList"><%= link_to audiobook.title, audiobook_path(audiobook) %><p>
 			<% end %> 

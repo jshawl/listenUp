@@ -1,6 +1,6 @@
 class NarratorsController < ApplicationController
 
-	def index
+	def index		
 		if params[:narrator]
 			@narrators = Narrator.where(narrator_params)
 		else

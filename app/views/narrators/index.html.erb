@@ -35,6 +35,9 @@
 
 </div>
 
+<div id="searchResults">
+</div>
+
 <script>
 // radio buttons
 function check() {
@@ -74,13 +77,11 @@ Narrator.prototype = {
 			type: 'GET',
 			dataType: 'json',
 			success: function(json){
-				console.log("it worked!")
+				console.log(json)
+				$.each(json, function(){
+					$("#searchResults").append("<li>" + "<a href='/narrators/" + this.id + "'>" + this.name + "</a></li>")
+				})
 
-				<div>
-					<ol>
-						<%= render @narrators %>
-					</ol>
-				</div>
 			},
 			error: function(){
 				alert("Sorry, this didn't work!")
