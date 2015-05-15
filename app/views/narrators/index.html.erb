@@ -44,8 +44,16 @@ function uncheck() {
     document.getElementById("gender").checked = false;
 }
 
-var searchNarrators = document.querySelector(".searchFormBox")
-searchNarrators.addEventListener("click", Narrator)
+var performSearch = function(event){
+	event.preventDefault()
+	var gender = $("input[name='narrator[gender]']:checked").val()
+	var accent = $("input[name='narrator[accent]']:checked").val()
+	var voices = $("input[name='narrator[voices]']:checked").val()
+
+	var narrator = new Narrator(gender, accent, voices)
+	console.log("narrator")
+	narrator.search()
+}
 
 // search
 var Narrator = function(gender, accent, voices){
@@ -54,40 +62,33 @@ var Narrator = function(gender, accent, voices){
 	this.voices = voices
 }
 
+var searchNarrators = document.querySelector(".searchFormBox")
+searchNarrators.addEventListener("submit", performSearch.bind(this))
+
 Narrator.prototype = {
 	search: function(){
+		console.log("ajax time")
 		$.ajax({
 			url: "http://localhost:3000/narrators",
-			data: { narrator: {gender: this.gender, accent: this. accent, voices: this.voices}},
+			data: { narrator: {gender: this.gender, accent: this.accent, voices: this.voices}},
 			type: 'GET',
 			dataType: 'json',
 			success: function(json){
 				console.log("it worked!")
+
+				<div>
+					<ol>
+						<%= render @narrators %>
+					</ol>
+				</div>
 			},
 			error: function(){
 				alert("Sorry, this didn't work!")
 			},
 			complete: function(){
 				alert("The thing has been done!")
-			}	
-		// }).done(function(){
-		// 	console.log("it worked!")
-		// }).fail(function(){
-		// 	console.log("failure")
-		// }).always(function(){
-		// 	console.log("you managed to do something right")
+			}	 
 		})
 	}
 }
 </script>
-
-
-<h2 style="text-decoration:none">
-	<%= link_to "Narrators", "#", id: "narrators_link" %>
-</h2>
-
-<section id="list-narrators">
-	<ol id="narrators">
-		<%= render @narrators %>
-	</ol>
-</section>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+# jQuery turbolinks
+gem 'jquery-turbolinks'
 
 # use bootstrap
 gem 'bootstrap-sass'

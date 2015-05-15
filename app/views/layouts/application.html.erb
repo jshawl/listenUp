@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ListenUP</title>
+  <meta charset="utf-8">
+  <!-- make responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../icon.jpg">
 	<%= stylesheet_link_tag "application.css" %> 
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,900,300italic' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Lato:400,900,300italic" rel="stylesheet" type="text/css">
+  <title>ListenUP</title>
 </head>
 <body>
 
-<div class="logo">
-<%= link_to image_tag("logo_v2.jpg"), root_path %>
+<div class="container">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+
+        <% if user_signed_in? %>
+          You are signed in as
+          <%= current_user.email %><br>
+          <li class="active">
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "list" %>
+          </li>
+        <% else %>
+          <li role="button" class="active">
+            <%= link_to 'Login', new_user_session_path, :class => "list" %>
+        <% end %>
+
+        <li role="button" class="active">
+          <%= link_to "Add a Narrator", new_narrator_path %>
+        </li>
+          
+        <li role="button" class="active">
+          <%= link_to "Add an Audiobook", new_audiobook_path %>
+        </li>
+      </ul>
+    </nav>
+  <div class="logo">
+    <%= link_to image_tag("logo_v2.jpg"), root_path %>
+  </div>
 </div>
+
+
 
 <!-- for Devise -->
 <% if notice %>
@@ -23,31 +54,8 @@
 <!-- end of Devise code -->
 
 <%= yield %>
-
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<!-- <script src="js/bootstrap.min.js"></script> -->
 </body>
-
-<footer>
-	<div class="nav_bar">
-    <ul class="menu">
-
-    	<%= link_to "Add a Narrator", new_narrator_path %>
-    	<br>
-      <%= link_to "Add an Audiobook", new_audiobook_path %>
-      <br>
-
-    	<% if user_signed_in? %>
-          You are signed in as
-      		<%= current_user.email %><br>
-      		<%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "list" %>
-    	<% else %>
-      Know a narrator or audiobook that is not in our database?  <br>
-      Sign up to become a contributor!
-      <br>
-      		<%= link_to 'Login', new_user_session_path, :class => "list" %>
-    	<% end %>
-
-    </ul>
-</div>
-</footer>
 
 </html>
