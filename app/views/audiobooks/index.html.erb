@@ -1,5 +1,6 @@
 <script>
 
+  // this works, but please move js to app/assets to take advantage of the asset pipeline.
 var searchAudiobooks = document.querySelector(".searchFormBox")
 searchNarrators.addEventListener("click", Narrator)
 
@@ -14,7 +15,7 @@ var Audiobook = function(title, author, category, narrator_id){
 Audiobook.prototype = {
 	search: function(){
 		$.ajax({
-			url: "http://localhost:3000/audiobook",
+			url: "http://localhost:3000/audiobook", // if you remove `http://localhost:3000`, the heroku problem should be fixed.
 			data: { audiobook: {title: this.title, author: this.author, category: this.category, narrator_id: this.narrator_id}},
 			type: 'GET',
 			dataType: 'json',

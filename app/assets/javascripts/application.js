@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// I noticed you have several `respond_to` blocks in your controller - but I'm not seeing any JS to make these ajax calls.

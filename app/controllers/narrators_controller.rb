@@ -15,6 +15,7 @@ class NarratorsController < ApplicationController
 	def create
 		# make a new narrator using the information provided by the user
 		@narrator = Narrator.new(name: params[:name], gender: params[:gender], accent: params[:accent], voices: params[:voices])
+		# why not use the strong paramters method you defined below?
 		@narrator.save
 		@narrators = Narrator.all
 		render :index

@@ -15,9 +15,11 @@ class AudiobooksController < ApplicationController
 
 	def create
 		# I think this variable is not actually working because I wasn't able to use it to create a dropdown menu
+	        # If you add <%= @narrators %> to the view - does anything show? i.e. is it an active record issue or an html issue? 
 		@narrators = Narrator.all
 
 		@audiobook = Audiobook.new(title: params[:title], author: params[:author], category: params[:category], narrator_id: params[:narrator_id])
+		# ^^ this works! Though I see you have `audiobook_params` below - why not use that?
 		@audiobook.save
 		render :index
 

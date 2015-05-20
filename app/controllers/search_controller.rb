@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
 
+  # please remove commented out code in the future - use git branches instead to manage
+  # your code.
 	# def new
 	# 	@age = current_user.age
 	# 	@userGender = current_user.gender
